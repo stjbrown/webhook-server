@@ -2,10 +2,11 @@
 
 #Install Ansible & azure
 apk update
-apk add gcc git libffi-dev musl-dev openssl-dev perl py-pip python python-dev sshpass
+apk add gcc git libffi-dev musl-dev openssl-dev perl py-pip python python-dev sshpass jq
 pip install --upgrade pip
 pip install git+git://github.com/ansible/ansible.git@stable-2.4
 pip install ansible[azure] bigsuds f5-sdk netaddr deepdiff ansible-lint ansible-review
+pip install azure-cli
 
 #Add dev module bigip_node.py
 cd ~
