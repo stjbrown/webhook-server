@@ -12,5 +12,5 @@ do
 echo "Deleteing $ID"
 az ad sp delete --id $ID
 done
-
+mv /root/webhook-server/hooks/clientIDs.txt "/root/webhook-server/hooks/clientIDs.$(date +%F)"
     #az ad delete --id $ID
