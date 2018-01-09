@@ -1,6 +1,8 @@
 #!/bin/bash
 SP_PASSWORD=ChangeMeNow123
 
+echo $1
+
 #Log into Azure
 
 AZURE_SUBSCRIPTION_ID=$(az login -u $AZURE_USERNAME -p $AZURE_PW | jq '.[0] .id' --raw-output)
@@ -11,9 +13,9 @@ AZURE_TENANT=$(az account list | jq '.[0] .tenantId' --raw-output)
 AZURE_TENANT="export AZURE_TENANT=${AZURE_TENANT}"
 
 #Create new SP
-AZURE_CLIENT_ID=$(az ad sp create-for-rbac --name $1 --password $SP_PASSWORD | jq '.appId' --raw-output)
+AZURE_CLIENT_ID=$(az ad sp create-for-rbac --name $SP_USERNAME --password $SP_PASSWORD | jq '.appId' --raw-output)
 AZURE_CLIENT_ID="export AZURE_CLIENT_ID= ${AZURE_CLIENT_ID}"
-AZURE_SECRET="export AZURE_SECRET=$SP_PASSWORD"
+AZURE_SECRET="export AZURE_SECRET=$SP_USERNAME"
 
 echo $AZURE_SUBSCRIPTION_ID
 echo $AZURE_TENANT

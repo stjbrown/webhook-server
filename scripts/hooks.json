@@ -1,0 +1,28 @@
+[
+  {
+    "id": "spCreate",
+    "execute-command": "/root/webhook-server/scripts/spCreate.sh",
+    "command-working-directory": "/root/webhook-server/scripts",
+    "include-command-output-in-response": true,
+    "pass-arguments-to-command":
+    [
+      {
+        "source": "url",
+        "name": "SP_USERNAME"
+      }
+    ],      
+    "trigger-rule":
+    {
+      "match":
+      {
+        "type": "value",
+        "value": "42",
+        "parameter":
+        {
+          "source": "url",
+          "name": "token"
+        }
+      }
+    }
+  }
+]
