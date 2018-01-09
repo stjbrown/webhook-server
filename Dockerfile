@@ -24,5 +24,4 @@ ENV GOPATH "/root/go"
 RUN go get github.com/adnanh/webhook
 
 #Add hooks
-RUN cd /root
-RUN git clone https://github.com/stjbrown/webhook-server.git
+RUN cd /root &&cgit clone https://github.com/stjbrown/webhook-server.git
