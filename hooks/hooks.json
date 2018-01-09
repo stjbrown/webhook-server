@@ -1,8 +1,8 @@
 [
   {
     "id": "spCreate",
-    "execute-command": "/root/webhook-server/scripts/spCreate.sh",
-    "command-working-directory": "/root/webhook-server/scripts",
+    "execute-command": "/root/webhook-server/hooks/spCreate.sh",
+    "command-working-directory": "/root/webhook-server/hooks",
     "include-command-output-in-response": true,
     "pass-arguments-to-command":
     [
@@ -16,7 +16,26 @@
       "match":
       {
         "type": "value",
-        "value": "42",
+        "value": "nyagility",
+        "parameter":
+        {
+          "source": "url",
+          "name": "token"
+        }
+      }
+    }
+  },
+  {
+    "id": "spDelete",
+    "execute-command": "/root/webhook-server/hooks/spDelete.sh",
+    "command-working-directory": "/root/webhook-server/hooks",
+    "include-command-output-in-response": true,
+    "trigger-rule":
+    {
+      "match":
+      {
+        "type": "value",
+        "value": "admin",
         "parameter":
         {
           "source": "url",

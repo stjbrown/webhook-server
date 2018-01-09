@@ -11,7 +11,7 @@ ENV SNOPS_AUTOCLONE 0
 
 #Install Libs
 RUN apk update
-RUN apk add gcc libffi-dev musl-dev openssl-dev perl py-pip python python-dev sshpass jq go
+RUN apk add gcc libffi-dev musl-dev openssl-dev perl py-pip python python-dev sshpass jq go util-linux
 
 #Install azure-cli
 RUN pip install --upgrade pip
@@ -24,4 +24,5 @@ ENV GOPATH "/root/go"
 RUN go get github.com/adnanh/webhook
 
 #Add hooks
-copy hooks /root
+RUN cd /root
+RUN git clone https://github.com/stjbrown/webhook-server.git
